@@ -1,6 +1,20 @@
 <script>
     import { Link } from "svelte-routing";
     import Nav from "./Nav.svelte";
+    import { post } from "./fetch";
+
+    let email = $state("");
+    let password = $state("");
+
+    const doPost = async () => {
+        let data = {
+            email: email,
+            password: password,
+        };
+        console.log(data);
+        let res = await post("/api/v1/login", data);
+        console.log(res);
+    };
 </script>
 
 <main>
@@ -13,6 +27,7 @@
                 placeholder="Enter your mail address"
                 type="email"
                 id="email"
+                bind:value={email}
             />
         </div>
         <div class="input__line">
@@ -21,10 +36,11 @@
                 placeholder="Enter your password"
                 type="password"
                 id="password"
+                bind:value={password}
             />
         </div>
         <div class="placeholder"></div>
-        <button class="solid">LOGIN</button>
+        <button class="solid" onclick={doPost}>LOGIN</button>
     </div>
 </main>
 
