@@ -32,3 +32,24 @@ func CreateLandmark(db *gorm.DB) func(*fiber.Ctx) error {
 		})
 	}
 }
+
+func CategoryLandmark(db *gorm.DB) func(*fiber.Ctx) error {
+	return func(c *fiber.Ctx) error {
+		category := c.Params("category")
+
+		var landmarks []models.Landmark
+
+		err := db.Find(&landmarks).Where("category = ?", category).Error
+		if err != nil {
+			return c.Status(401).JSON(fiber.Map{
+				"message": "Error getting landmarks",
+				"error":   err.Error(),
+			})
+		}
+
+		return c.Status(200).JSON(fiber.Map{
+			"message": "Successfully retrieved users",
+			"data":    landmarks,
+		})
+	}
+}
