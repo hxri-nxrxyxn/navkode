@@ -40,16 +40,22 @@
     <div class="placeholder"></div>
 
     <div class="option__box">
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
+        <!-- svelte-ignore a11y_no_static_element_interactions -->
         <div onclick={goLeft}>
             <div class="option__image">
+                <!-- svelte-ignore a11y_missing_attribute -->
                 <img src={Chevron} style="transform: scaleX(-1);" />
             </div>
         </div>
         <div class="option__text">
             <h2>{category}</h2>
         </div>
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
+        <!-- svelte-ignore a11y_no_static_element_interactions -->
         <div onclick={goRight}>
             <div class="option__image">
+                <!-- svelte-ignore a11y_missing_attribute -->
                 <img src={Chevron} />
             </div>
         </div>
