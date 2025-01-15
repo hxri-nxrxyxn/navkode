@@ -4,9 +4,9 @@ const query = `
 [out:json];
 area["name"="Kozhikode"];
 (
-  node["amenity"="parking"](area);
-  way["amenity"="parking"](area);
-  relation["amenity"="parking"](area);
+  node["tourism"](area);
+  way["tourism"](area);
+  relation["tourism"](area);
 );
 out body;
 `;
@@ -34,9 +34,9 @@ fetch(overpassUrl, {
                 "lat" : (element.lat).toString(),
                 "name" : (element.tags.name == undefined ? "" : element.tags.name),
             }
-            console.log(datab)
+            console.log(element)
             try {
-                const response = await fetch("http://127.0.0.1:8080/api/v1/parking", {
+                const response = await fetch("http://127.0.0.1:dsf", {
                   method: "POST",
                   headers: {
                     'Content-Type': 'application/json',
