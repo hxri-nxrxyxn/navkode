@@ -7,7 +7,7 @@ import (
 )
 
 func UserRoutes(db *gorm.DB, app *fiber.App) {
-	api := app.Group("/api")
+	api := app.Group("/api/v1")
 	api.Post("/user", controller.CreateUser(db))
 	api.Get("/user/:id", controller.GetUser(db))
 

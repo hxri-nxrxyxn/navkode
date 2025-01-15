@@ -8,7 +8,6 @@ import (
 	"github.com/navkode/database"
 	"github.com/navkode/models"
 	"github.com/navkode/routes"
-	
 )
 
 func main() {
@@ -29,8 +28,11 @@ func main() {
 
 	models.MigrateUser(db)
 	models.MigrateLandmark(db)
+	models.MigrateParking(db)
 
 	routes.LandmarkRoutes(db, app)
+	routes.ParkingRoutes(db, app)
+	routes.UserRoutes(db, app)
 
 	app.Listen(":8080")
 }
