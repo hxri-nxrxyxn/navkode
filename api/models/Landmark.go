@@ -9,6 +9,8 @@ type Landmark struct {
 	Star       uint   `gorm:"int;not null" json:"star"`
 	Preview    string `gorm:"varchar(255);not null" json:"preview"`
 	Category   string `gorm:"varchar(255);not null" json:"category"`
+	Longitude  string `gorm:"varchar(255);" json:"lon"`
+	Latitude   string `gorm:"varchar(255);" json:"lat"`
 }
 
 func MigrateLandmark(db *gorm.DB) error {
