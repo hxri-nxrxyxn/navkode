@@ -9,7 +9,7 @@ import (
 func LandmarkRoutes(db *gorm.DB, app *fiber.App) {
 
 	api := app.Group("/api/v1")
-	api.Post("/landmark",controller.CreateLandmark(db))
-	
-	api.Post("/landmark/:category",controller.CategoryLandmark(db))
+	api.Post("/landmark", controller.CreateLandmark(db))
+
+	api.Get("/landmark/:category", controller.CategoryLandmark(db))
 }
