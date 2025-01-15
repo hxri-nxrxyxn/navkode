@@ -17,14 +17,13 @@ async function post(endpoint, data) {
   try {
     const response = await fetch(`${baseUrl}${endpoint}`, {
       method: "POST",
-      // headers: {
-      //   'Content-Type': 'application/json',
-      // },
-      // causes preflight requests -> cors issues
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(data),
     });
     if (!response.ok) {
-      throw new Error(`Network response was not ok (${response.status})`);
+      console.log(`Network response was not ok (${response})`);
     }
     return await response.json();
   } catch (error) {
