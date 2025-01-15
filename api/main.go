@@ -6,6 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/navkode/database"
 	"github.com/navkode/models"
+	"github.com/navkode/routes"
 )
 
 func main() {
@@ -22,6 +23,8 @@ func main() {
 
 	models.MigrateLandmark(db)
 	
+
+	routes.LandmarkRoutes(db, app)
 
 	app.Listen(":8080")
 }
