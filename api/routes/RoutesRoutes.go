@@ -10,4 +10,5 @@ func RoutesRoutes(db *gorm.DB, app *fiber.App) {
 
 	api := app.Group("/api/v1")
 	api.Post("/routes", controller.CreateRoutes(db))
+	api.Patch("/routes", controller.UpdateRoutes(db))
 }
