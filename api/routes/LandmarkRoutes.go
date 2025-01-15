@@ -12,5 +12,5 @@ func LandmarkRoutes(db *gorm.DB, app *fiber.App) {
 	api.Post("/landmark", controller.CreateLandmark(db))
 	api.Get("/landmark/:id", controller.GetLandmark(db))
 
-	api.Get("/landmark/:category", controller.CategoryLandmark(db))
+	api.Get("/landmarkCat/:category", controller.CategoryLandmark(db))
 }
