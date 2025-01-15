@@ -32,6 +32,10 @@
         </div>
         <div onclick={goRight}>right</div>
     </div>
+
+    <Link to={`/list?category=${category}`}>
+        <button class="solid">Continue</button>
+    </Link>
 </main>
 
 <style>
