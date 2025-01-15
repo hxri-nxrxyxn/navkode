@@ -39,7 +39,7 @@ func CategoryLandmark(db *gorm.DB) func(*fiber.Ctx) error {
 
 		var landmarks []models.Landmark
 
-		err := db.Find(&landmarks).Where("category = ?", category).Error
+		err := db.Where("category = ?", category).Find(&landmarks).Error
 		if err != nil {
 			return c.Status(401).JSON(fiber.Map{
 				"message": "Error getting landmarks",
