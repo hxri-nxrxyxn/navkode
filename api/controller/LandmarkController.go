@@ -48,8 +48,29 @@ func CategoryLandmark(db *gorm.DB) func(*fiber.Ctx) error {
 		}
 
 		return c.Status(200).JSON(fiber.Map{
-			"message": "Successfully retrieved users",
+			"message": "Successfully retrieved landmarksd",
 			"data":    landmarks,
 		})
+	}
+}
+
+func GetLandmark(db *gorm.DB) func(*fiber.Ctx) error {
+	return func(c *fiber.Ctx) error {
+		id := c.Params("id")
+		landmark := new(models.Landmark)
+
+		err := db.Find(landmark, id).Error
+		if err != nil {
+			return c.Status(401).JSON(fiber.Map{
+				"message": "Error getting the landmark",
+				"error":   err.Error(),
+			})
+		}
+
+		return c.Status(200).JSON(fiber.Map{
+			"message": "Successfully retrieved landmark",
+			"data":    landmark,
+		})
+
 	}
 }
