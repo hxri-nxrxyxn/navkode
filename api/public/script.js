@@ -4,9 +4,9 @@ const query = `
 [out:json];
 area["name"="Kozhikode"];
 (
-  node["tourism"](area);
-  way["tourism"](area);
-  relation["tourism"](area);
+  node["restaurant"](area);
+  way["restaurant"](area);
+  relation["restaurant"](area);
 );
 out body;
 `;
