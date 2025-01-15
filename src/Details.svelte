@@ -1,6 +1,7 @@
 <script>
     import { get } from "./fetch";
     import { Link } from "svelte-routing";
+    import Nav from "./Nav.svelte";
 
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id"); // Get the value of 'category'
@@ -10,10 +11,11 @@
 </script>
 
 <main>
+    <Nav />
     {#await promise}
         <p>Loading data...</p>
     {:then response}
-        <p>hey</p>
+        <h1>Here's the shortest path to {response.data.name}</h1>
         <div class="card">
             <div class="card__image"></div>
             <div class="card__text">

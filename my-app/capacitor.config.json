@@ -1,0 +1,10 @@
+{
+  "appId": "com.laddu.navkode",
+  "appName": "navkode",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}

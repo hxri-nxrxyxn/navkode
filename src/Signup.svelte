@@ -2,26 +2,37 @@
     import { Link } from "svelte-routing";
     import Nav from "./Nav.svelte";
     import { post } from "./fetch";
-    import Signup from "./Signup.svelte";
 
     let email = $state("");
     let password = $state("");
+    let username = $state("");
 
     const doPost = async () => {
         let data = {
             email: email,
             password: password,
+            username: username,
         };
         console.log(data);
-        let res = await post("/api/v1/login", data);
-        alert(res.message);
+        let res = await post("/api/v1/user", data);
+        console.log(res);
+        location.href = "/hero";
     };
 </script>
 
 <main>
     <Nav />
-    <h1>Login with ease</h1>
+    <h1>Create an account</h1>
     <div class="input__box">
+        <div class="input__line">
+            <label>Username</label>
+            <input
+                placeholder="Enter your username"
+                type="text"
+                id="username"
+                bind:value={username}
+            />
+        </div>
         <div class="input__line">
             <label>Email</label>
             <input
@@ -41,9 +52,10 @@
             />
         </div>
         <div class="placeholder"></div>
-        <button class="solid" onclick={doPost}>LOGIN</button>
+        <button class="solid" onclick={doPost}>SIGN UP</button>
         <p>
-            Don't have an account? <Link to="/"><span>Sign up</span></Link>
+            Already have an account? <Link to="/login"><span>Log In</span></Link
+            >
         </p>
     </div>
 </main>
