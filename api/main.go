@@ -15,14 +15,14 @@ func main() {
 	if err != nil {
 		log.Fatal("Could not load database")
 	}
-	
+
 	app := fiber.New()
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Hello World")
 	})
 
+	models.MigrateUser(db)
 	models.MigrateLandmark(db)
-	
 
 	routes.LandmarkRoutes(db, app)
 
