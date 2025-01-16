@@ -76,3 +76,200 @@ An interactive web and mobile app to improve navigation and accessibility in Koz
 - **Offline Navigation**: Download maps for use without internet connectivity.  
 
 ---
+
+Here’s a structured API documentation for your routes and controllers:
+
+---
+
+## **API Documentation**
+
+### **Base URL:**  
+`http://<your-domain>/api/v1`
+
+---
+
+### **Authentication**
+
+#### **1. Create User**  
+**POST** `/user`  
+
+- **Description:** Registers a new user.  
+- **Request Body:**  
+  ```json
+  {
+    "email": "string (required)",
+    "password": "string (required)"
+  }
+  ```
+- **Responses:**  
+  - **201:** User created successfully.  
+  - **400:** Error parsing request body.  
+  - **422:** Email and password are required.  
+  - **409:** Email already taken.  
+  - **501:** Error inserting into the database.  
+
+---
+
+#### **2. Login**  
+**POST** `/login`  
+
+- **Description:** Authenticates a user with email and password.  
+- **Request Body:**  
+  ```json
+  {
+    "email": "string (required)",
+    "password": "string (required)"
+  }
+  ```
+- **Responses:**  
+  - **200:** Successfully logged in.  
+  - **400:** Error parsing request body.  
+  - **422:** Email and password are required.  
+  - **404:** User not found.  
+  - **500:** Password is incorrect or error retrieving user.  
+
+---
+
+#### **3. Get User by ID**  
+**GET** `/user/:id`  
+
+- **Description:** Retrieves user details by ID.  
+- **Path Parameters:**  
+  - `id` (required): User ID.  
+- **Responses:**  
+  - **200:** Successfully retrieved user.  
+  - **404:** User not found.  
+  - **500:** Error retrieving user.  
+
+---
+
+### **Routes**
+
+#### **4. Create Routes**  
+**POST** `/routes`  
+
+- **Description:** Adds a new route.  
+- **Request Body:**  
+  ```json
+  {
+    "field1": "value",
+    "field2": "value"
+    }
+  ```
+- **Responses:**  
+  - **201:** Routes created successfully.  
+  - **400:** Error parsing request body.  
+  - **501:** Error inserting into the database.  
+
+#### **5. Update Routes**  
+**PATCH** `/routes/:id`  
+
+- **Description:** Updates route information.  
+- **Path Parameters:**  
+  - `id` (required): Route ID.  
+- **Request Body:**  
+  ```json
+  {
+    "field_to_update": "new_value"
+  }
+  ```
+- **Responses:**  
+  - **200:** Routes updated successfully.  
+  - **400:** Error parsing request body.  
+  - **500:** Error finding or updating the route.  
+
+---
+
+### **Restaurants**
+
+#### **6. Create Restaurant**  
+**POST** `/restaurant`  
+
+- **Description:** Adds a new restaurant.  
+- **Request Body:**  
+  ```json
+  {
+    "name": "string (required)",
+    "location": "string (required)",
+    "category": "string"
+  }
+  ```
+- **Responses:**  
+  - **201:** Restaurant created successfully.  
+  - **400:** Error parsing request body.  
+  - **501:** Error inserting into the database.  
+
+---
+
+### **Parking**
+
+#### **7. Create Parking**  
+**POST** `/parking`  
+
+- **Description:** Adds new parking details.  
+- **Request Body:**  
+  ```json
+  {
+    "name": "string (required)",
+    "location": "string (required)",
+    "capacity": "integer (required)"
+  }
+  ```
+- **Responses:**  
+  - **201:** Parking created successfully.  
+  - **400:** Error parsing request body.  
+  - **501:** Error inserting into the database.  
+
+---
+
+### **Landmarks**
+
+#### **8. Create Landmark**  
+**POST** `/landmark`  
+
+- **Description:** Adds a new landmark.  
+- **Request Body:**  
+  ```json
+  {
+    "name": "string (required)",
+    "location": "string (required)",
+    "category": "string (optional)"
+  }
+  ```
+- **Responses:**  
+  - **201:** Landmark created successfully.  
+  - **400:** Error parsing request body.  
+  - **501:** Error inserting into the database.  
+
+#### **9. Get Landmark by ID**  
+**GET** `/landmark/:id`  
+
+- **Description:** Retrieves landmark details by ID.  
+- **Path Parameters:**  
+  - `id` (required): Landmark ID.  
+- **Responses:**  
+  - **200:** Successfully retrieved landmark.  
+  - **401:** Error retrieving the landmark.  
+
+#### **10. Get Landmarks by Category**  
+**GET** `/landmarkCat/:category`  
+
+- **Description:** Retrieves landmarks by category.  
+- **Path Parameters:**  
+  - `category` (required): Landmark category.  
+- **Responses:**  
+  - **200:** Successfully retrieved landmarks.  
+  - **401:** Error retrieving landmarks.  
+
+---
+
+### **Error Responses**  
+
+- **400:** Bad Request (Invalid or malformed request data).  
+- **401:** Unauthorized access.  
+- **404:** Resource not found.  
+- **422:** Validation errors.  
+- **500:** Internal Server Error.  
+- **501:** Database insertion error.  
+
+--- 
