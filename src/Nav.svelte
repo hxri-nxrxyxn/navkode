@@ -1,4 +1,5 @@
 <script>
+    import { Link } from "svelte-routing";
     import Cursor from "./assets/cursor-finger.svg";
     import House from "./assets/house-crack.svg";
     import Logi from "./assets/insert-alt.svg";
@@ -11,8 +12,12 @@
         </div>
         <div class="nav__placeholder">hi</div>
         <div class="nav__sub">
-            <img src={Cursor} alt="" />
-            <img src={Logi} alt="" />
+            <Link to="/details">
+                <img src={Cursor} alt="" />
+            </Link>
+            <Link to="/login">
+                <img src={Logi} alt="" />
+            </Link>
         </div>
     </div>
 </main>

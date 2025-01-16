@@ -2,16 +2,7 @@
     import { Link } from "svelte-routing";
     import Chevron from "./assets/angle-small-right.svg";
     import Nav from "./Nav.svelte";
-    const categories = [
-        "Mall",
-        "Beach",
-        "Park",
-        "Shopping",
-        "Restaurant",
-        "Historical",
-        "Nature",
-        "Education",
-    ];
+    const categories = ["Mall", "Beach", "Park", "Shopping", "Restaurant", ""];
     let category = $state("");
 
     let i = 0;
