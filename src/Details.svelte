@@ -89,20 +89,36 @@
         </h1>
         <div class="card">
             <div class="card__text">
+                <p>{landmarkResponse.data.name}</p>
                 <h2>{landmarkResponse.data.lon} E</h2>
                 <h2>{landmarkResponse.data.lat} N</h2>
             </div>
+            {#if nearestParking}
+                <div class="card__text">
+                    <p>Nearest Parking Space</p>
+                    <h2>{nearestParking.lat} E</h2>
+                    <h2>{nearestParking.lon} N</h2>
+                </div>
+                <div class="card__text">
+                    <p>About</p>
+                    <h2>{(minDistance / 1000).toFixed(2)} km</h2>
+                </div>
+                <div
+                    class="card__text"
+                    style="display: flex; align-items: center; justify-content: center;"
+                >
+                    <a
+                        href={`https://google.com/maps?q=${nearestParking.lat},${nearestParking.lon}`}
+                    >
+                        <button>Open Maps</button>
+                    </a>
+                </div>
+            {:else if parkingSpots && parkingSpots.length === 0}
+                <p>No parking spots found</p>
+            {:else}
+                <p>Finding Nearest Parking</p>
+            {/if}
         </div>
-        {#if nearestParking}
-            <p>
-                Nearest Parking is at {nearestParking.lat}, {nearestParking.lon}
-                and is {minDistance.toFixed(2)} km away
-            </p>
-        {:else if parkingSpots && parkingSpots.length === 0}
-            <p>No parking spots found</p>
-        {:else}
-            <p>Finding Nearest Parking</p>
-        {/if}
     {:catch error}
         <p style="color: red;">
             Error loading data: {error.message ||
@@ -112,5 +128,25 @@
 </main>
 
 <style>
-    /* ... your styles */
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .card__text {
+        margin: 2rem 0;
+    }
+    .card button {
+        background: var(--color-primary);
+        padding: 1rem 2rem;
+        border: 0;
+        border-radius: 2rem;
+        color: white;
+        font-family: "Inter";
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    p {
+        color: var(--color-light);
+    }
 </style>
