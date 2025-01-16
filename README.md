@@ -77,10 +77,6 @@ An interactive web and mobile app to improve navigation and accessibility in Koz
 
 ---
 
-Here’s a structured API documentation for your routes and controllers:
-
----
-
 ## **API Documentation**
 
 ### **Base URL:**  
