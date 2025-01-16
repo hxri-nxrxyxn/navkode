@@ -1,8 +1,4 @@
-Here's a quick and structured `README.md` for your project:
-
----
-
-# Kozhikode Navigator 🌍  
+# NavKode 🌍  
 An interactive web and mobile app to improve navigation and accessibility in Kozhikode by providing real-time route suggestions that factor in traffic congestion, parking availability, and nearby dining options.  
 
 ---
