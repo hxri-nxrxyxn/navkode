@@ -1,47 +1,82 @@
-# Svelte + Vite
+Here's a quick and structured `README.md` for your project:
 
-This template should help get you started developing with Svelte in Vite.
+---
 
-## Recommended IDE Setup
+# Kozhikode Navigator 🌍  
+An interactive web and mobile app to improve navigation and accessibility in Kozhikode by providing real-time route suggestions that factor in traffic congestion, parking availability, and nearby dining options.  
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+---
 
-## Need an official Svelte framework?
+## 🚀 Features  
+- **Landmark-Based Navigation**: Select from major landmarks in Kozhikode and get the best route.  
+- **Real-Time Traffic**: Avoid congested routes with live traffic data.  
+- **Parking Information**: Locate nearby parking spots with availability details.  
+- **Restaurant Recommendations**: Discover popular food options near your destination.  
+- **Google Maps Integration**: Redirect to Google Maps for turn-by-turn navigation.  
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+---
 
-## Technical considerations
+## 🛠️ Tech Stack  
 
-**Why use this over SvelteKit?**
+### **Frontend**  
+- HTML, CSS, Tailwind CSS  
+- Svelte for reactivity  
+- TypeScript for logic  
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+### **Backend**  
+- Go Lang for REST API  
+- PostgreSQL for database  
+- Traefik for load balancing   
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+### **Other Integrations**   
+- OpenStreetMap + MapLibre for custom mapping  
+- Cloudflare for security  
+- GitHub for CI/CD  
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+---
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+## 📋 Installation  
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+### Prerequisites  
+- Node.js for frontend developmen
+- Go 1.22+
 
-**Why include `.vscode/extensions.json`?**
+### Steps  
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/hxri-nxrxyxn/navkode/
+   cd navkode
+   ```
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+2. Set up the backend:  
+   ```bash
+   cd api
+   go run main.go
+   ```
 
-**Why enable `checkJs` in the JS template?**
+3. Set up the frontend:  
+   ```bash
+   npm install
+   npm run dev
+   ```
 
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
+4. Access the app:  
+   - **Web**: `http://localhost:5173`  
+   - **Mobile**: Convert the app to APK using CapacitorJS.  
 
-**Why is HMR not preserving my local component state?**
+---
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
+## 🌟 How It Works  
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+1. **Select a Landmark**: Choose a destination from the predefined list.  
+2. **Analyze Routes**: The app calculates the best route based on traffic, parking, and restaurant data.  
+3. **Navigate**: Confirm the route and get redirected to Google Maps for step-by-step guidance.  
 
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+---
+
+## 📅 Upcoming Features  
+- **Crowdsourced Traffic Reporting**: Allow users to report traffic conditions in real-time.  
+- **AI-Powered Suggestions**: Use machine learning to improve route recommendations.  
+- **Offline Navigation**: Download maps for use without internet connectivity.  
+
+---
