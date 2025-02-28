@@ -269,3 +269,7 @@ An interactive web and mobile app to improve navigation and accessibility in Koz
 - **501:** Database insertion error.  
 
 --- 
+
+## 📧 Contact
+
+For any questions or inquiries, please contact [me](hari@laddu.cc). 📬
